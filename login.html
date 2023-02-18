@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Keep Track of your Tasks!</title>
+        <link rel="stylesheet" href="styles/loginstyle.css">
+        <script src="https://kit.fontawesome.com/8786ec1545.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="hero">
+            <nav>
+                <h2 class = "logo">Todo<span> Tracker</span></h2>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="FORM">
+                <h1 id="title">Sign Up</h1>
+                <form>
+                    <div class="input-group" id="nameField">
+                        <div class="input-field">
+                            <i class="fa-solid fa-user"></i>
+                            <form method="POST">
+                                <input type="text" placeholder="First and Last Name">
+                            </form>
+                        </div>
+
+                        <div class="input-field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <form method="POST">
+                                <input type="email" placeholder="Email">
+                            </form>
+                        </div>
+
+                        <div class="input-field">
+                            <i class="fa-solid fa-lock"></i>
+                            <form method="POST">
+                                <input type="password" placeholder="Password">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="btn-field">
+                        <button class=type="button" id="signupBtn">Sign up</button>
+                        <!-- <button type="button" id="signinBtn" class="disable">Sign in</button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+
+            let signupBtn = document.getElementById("signupBtn");
+            let signinBtn = document.getElementById("signinBtn");
+            let nameField = document.getElementById("nameField");
+            let title = document.getElementById("title");
+            
+            signinBtn.onclick = function() {
+                nameField.style.maxHeight = "0";
+                title.innerHTML = "Sign In";
+                signupBtn.classList.add("disable");
+                signinBtn.classList.remove("disable");
+            }
+
+            signupBtn.onclick = function() {
+                nameField.style.maxHeight = "60px";
+                title.innerHTML = "Sign Up";
+                signupBtn.classList.remove("disable");
+                signinBtn.classList.add("disable");
+            }
+
+
+        </script>
+    </body>
+</html>
