@@ -58,7 +58,7 @@ add.addEventListener(`click`, (e)=>{
         editBtn.setAttribute(`id`, `edit`);
         editBtn.setAttribute(`style`, `margin-right:5px;`);
         editBtn.setAttribute(`type`, `button`);
-        editBtn.innerHTML = `edit changed`;
+        editBtn.innerHTML = `edit`;
 
         newForm.appendChild(editBtn);
         newForm.appendChild(delBtn);
@@ -70,7 +70,6 @@ add.addEventListener(`click`, (e)=>{
         checkbox.addEventListener('click',()=>{
             console.log("clicked");
             newCol.removeChild(newTask);
-            newTask.setAttribute(`style`, `text-align:center; text-decoration:line-through;`);
         })
         delBtn.addEventListener(`click`, ()=>{ //when delete button is clicked
             console.log("clicked");
@@ -101,6 +100,7 @@ add.addEventListener(`click`, (e)=>{
             if (editBtn.getAttribute('id')==='edit'){
                 p.contentEditable = true;  
                 p.style.backgroundColor = "#dddbdb";
+                p.className = "form-control";
                 editBtn.setAttribute(`id`, `end`);
                 editBtn.innerHTML = `Confirm`;
                 editBtn.setAttribute(`class`, `btn btn-success`);
@@ -111,14 +111,9 @@ add.addEventListener(`click`, (e)=>{
                 editBtn.innerHTML = `edit`;
                 editBtn.setAttribute(`class`, `btn btn-warning`);
             }
-                
-            
-        navloginbutton.addEventListener('click', ()=>{
-            
-        })
 
         });
-        closeButton.addEventListener(`click`, ()=>{
+        closeButton.addEventListener(`click`, ()=>{ //when editing is finished
             editDiv.removeChild(tempInput);
             editDiv.removeChild(closeButton);
             editBtn.disabled = false;
