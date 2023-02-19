@@ -10,7 +10,7 @@ form {
     justify-content:center;
 }
 article {
-    border:1px solid green;
+    border:1px solid #ccc;
     font-size:1.125rem;
     display:flex;
     justify-content:space-between;

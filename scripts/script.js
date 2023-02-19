@@ -49,12 +49,12 @@ add.addEventListener(`click`, (e)=>{
         let delBtn = document.createElement(`button`);
         let editBtn = document.createElement(`button`);
 
-        delBtn.setAttribute(`class`, `btn btn-danger`);
+        delBtn.setAttribute(`class`, `btn btn-danger btn-sm`);
         delBtn.setAttribute(`id`, `delete`);
         delBtn.setAttribute(`type`, `button`);
         delBtn.innerHTML = `delete`;
         
-        editBtn.setAttribute(`class`, `btn btn-warning`);
+        editBtn.setAttribute(`class`, `btn btn-warning btn-sm`);
         editBtn.setAttribute(`id`, `edit`);
         editBtn.setAttribute(`style`, `margin-right:5px;`);
         editBtn.setAttribute(`type`, `button`);
