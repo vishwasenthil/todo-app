@@ -2,7 +2,13 @@ let add = document.getElementById(`add`);
 let edit = document.getElementById(`edit`);
 let container = document.getElementsByClassName(`container`);
 let input = document.getElementById(`task`);
-let navloginbutton = document.getElementById('navloginbutton')
+let navloginbutton = document.getElementById('navloginbutton');
+
+let remaining = 0;
+let completed = 0;
+
+document.getElementById(`remaining`).innerHTML = `remaining: ${remaining}`;
+document.getElementById(`completed`).innerHTML = `completed: ${completed}`;
 
 add.addEventListener(`click`, (e)=>{
     e.preventDefault(); //prevents page from refreshing
@@ -15,6 +21,8 @@ add.addEventListener(`click`, (e)=>{
         <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>`;
         container[0].appendChild(temp);
     } else {
+        remaining++;
+        document.getElementById(`remaining`).innerHTML = `remaining: ${remaining}`;
         let newRow = document.createElement(`div`);
         let newCol = document.createElement(`col`);
 
@@ -69,11 +77,16 @@ add.addEventListener(`click`, (e)=>{
         
         checkbox.addEventListener('click',()=>{
             setTimeout(()=>{
-                console.log("clicked");
+                remaining--;
+                completed++;
+                document.getElementById(`remaining`).innerHTML = `remaining: ${remaining}`;
+                document.getElementById(`completed`).innerHTML = `completed: ${completed}`;
                 newCol.removeChild(newTask);
-            }, 500);
-        })
+            }, 100);
+        });
         delBtn.addEventListener(`click`, ()=>{ //when delete button is clicked
+            remaining--;
+            document.getElementById(`remaining`).innerHTML = `remaining: ${remaining}`;
             console.log("clicked");
             newCol.removeChild(newTask);
             newTask.setAttribute(`style`, `text-align:center; text-decoration:line-through;`);
@@ -88,37 +101,22 @@ add.addEventListener(`click`, (e)=>{
         let editDiv = document.createElement(`div`);
         editDiv.setAttribute(`style`, `position:relative;`);
 
-        let tempInput = document.createElement(`input`);
-        tempInput.setAttribute(`type`, `text`);
-        tempInput.setAttribute(`class`, `form-control`);
-        tempInput.setAttribute(`style`, `width:100%;`);
-
-        let closeButton = document.createElement(`button`);
-        closeButton.setAttribute(`type`, `button`);
-        closeButton.setAttribute(`class`, `btn btn-danger`);
-        closeButton.setAttribute(`style`, `position:absolute; top:0; right:0;`);
-        closeButton.innerHTML = `close`;
         editBtn.addEventListener(`click`, ()=>{ //when edit button is clicked
             if (editBtn.getAttribute('id')==='edit'){
-                p.contentEditable = true;  
-                p.style.backgroundColor = "#dddbdb";
-                p.className = "form-control";
+                p.contentEditable = true;
+                p.style.transitionDuration = `0.4s`;
+                p.style.color = `red`;
                 editBtn.setAttribute(`id`, `end`);
                 editBtn.innerHTML = `Confirm`;
                 editBtn.setAttribute(`class`, `btn btn-success`);
             }else{
                 p.contentEditable = false;  
-                p.style.backgroundColor = 'transparent';
+                p.style.color = 'black';
                 editBtn.setAttribute(`id`, `edit`);
                 editBtn.innerHTML = `edit`;
                 editBtn.setAttribute(`class`, `btn btn-warning`);
             }
 
-        });
-        closeButton.addEventListener(`click`, ()=>{ //when editing is finished
-            editDiv.removeChild(tempInput);
-            editDiv.removeChild(closeButton);
-            editBtn.disabled = false;
         });
     }
 });
