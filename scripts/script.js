@@ -31,7 +31,7 @@ add.addEventListener(`click`, (e)=>{
         */
 
         let checkbox = document.createElement(`input`);
-        checkbox.setAttribute(`class`, `form-check-input mt-0`);
+        checkbox.setAttribute(`class`, `form-check-input`);
         checkbox.setAttribute(`type`, `checkbox`);
         checkbox.setAttribute(`value`, ``);
         checkbox.setAttribute(`style`, `position:absolute; left:2; top:30%;`);
@@ -68,8 +68,10 @@ add.addEventListener(`click`, (e)=>{
         input.value = ``;
         
         checkbox.addEventListener('click',()=>{
-            console.log("clicked");
-            newCol.removeChild(newTask);
+            setTimeout(()=>{
+                console.log("clicked");
+                newCol.removeChild(newTask);
+            }, 500);
         })
         delBtn.addEventListener(`click`, ()=>{ //when delete button is clicked
             console.log("clicked");
