@@ -1,5 +1,6 @@
 # Todo App
 Todo app is a website for users to manage tasks
+view the site [here](https://vishwasenthil.github.io/todo-app)
 
 ## implementation
 when the user types a task into the input field and presses the add button, a new element is created with the users task and with a checkbox, an edit button, and a delete button.
